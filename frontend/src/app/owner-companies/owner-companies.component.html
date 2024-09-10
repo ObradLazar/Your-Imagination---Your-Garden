@@ -1,0 +1,124 @@
+<header>
+  <app-menu-owner></app-menu-owner>
+</header>
+<body>
+  <h3>Lista svih firmi:</h3>
+<div>
+  <table>
+    <tr>
+      <th>
+        <div>Ime firme:</div>
+      </th>
+      <th>
+        <div>Adresa:</div>
+      </th>
+      <th>
+        <div>Kontakt telefon:</div>
+      </th>
+      <th>
+        <div>Prosecna ocena:</div>
+      </th>
+      <th>
+        <div>Lista zaposlenih:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let c of allCompanies">
+      <td>
+        <div><a [routerLink]="['/companyInfo', c.naziv]">{{c.naziv}}</a></div>
+      </td>
+      <td>
+        <div>{{c.adresa}}</div>
+      </td>
+      <td>
+        <div>{{c.kontakt_telefon}}</div>
+      </td>
+      <td>
+        <div>
+          {{calculateAverageGrade(c.ocene)}}
+        </div>
+        <div *ngIf="c.ocene.length > 0">
+          <div class="tree-rating">
+            <span *ngFor="let tree of trees; let i = index">
+              <span class="symbol"
+                    [ngClass]="{
+                      'filled': i < calculateAverageGrade(c.ocene),
+                      'half-filled': i + 1 > calculateAverageGrade(c.ocene) && i < calculateAverageGrade(c.ocene),
+                      'empty': i >= calculateAverageGrade(c.ocene)
+                    }">🌳</span>
+            </span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div><li *ngFor="let d of c.lista_zaposlenih">{{getDecorator(d)}}</li></div>
+      </td>
+    </tr>
+  </table>
+  <label>Sortiraj po:</label>
+  <span>
+    <button (click)="nazivRastuce()">Imenu rastuće</button>
+    <button (click)="nazivOpadajuce()">Imenu opadajuće</button>
+    <button (click)="adresaRastuce()">Adresi rastuće</button>
+    <button (click)="adresaOpadajuce()">Adresi opadajuće</button>
+  </span>
+</div>
+<div>
+  <h3>Pretraga:</h3>
+  <div>
+    <label>Unesite parametar pretrage:</label>
+    <input type="text" [(ngModel)]="searchParam">
+    <span><button (click)="search()">Pretraži</button></span>
+    <table [hidden]="!searchBool">
+      <tr>
+        <th>
+          <div>Ime firme:</div>
+        </th>
+        <th>
+          <div>Adresa:</div>
+        </th>
+        <th>
+          <div>Kontakt telefon:</div>
+        </th>
+        <th>
+          <div>Prosecna ocena:</div>
+        </th>
+        <th>
+          <div>Lista zaposlenih:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let c of searchCompanies">
+        <td>
+          <div><a [routerLink]="['/companyInfo', c.naziv]">{{c.naziv}}</a></div>
+        </td>
+        <td>
+          <div>{{c.adresa}}</div>
+        </td>
+        <td>
+          <div>{{c.kontakt_telefon}}</div>
+        </td>
+        <td>
+          <div>
+            {{calculateAverageGrade(c.ocene)}}
+          </div>
+          <div *ngIf="c.ocene.length > 0">
+            <div class="tree-rating">
+              <span *ngFor="let tree of trees; let i = index">
+                <span class="symbol"
+                      [ngClass]="{
+                        'filled': i < calculateAverageGrade(c.ocene),
+                        'half-filled': i + 1 > calculateAverageGrade(c.ocene) && i < calculateAverageGrade(c.ocene),
+                        'empty': i >= calculateAverageGrade(c.ocene)
+                      }">🌳</span>
+              </span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div><li *ngFor="let d of c.lista_zaposlenih">{{getDecorator(d)}}</li></div>
+        </td>
+      </tr>
+    </table>
+    <label [hidden]="searchBool">{{searchMessage}}</label>
+  </div>
+</div>
+</body>

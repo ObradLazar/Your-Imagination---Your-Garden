@@ -1,0 +1,31 @@
+<header>
+  <app-menu-admin></app-menu-admin>
+</header>
+<body>
+  <h3>Azuriraj korisnika:</h3>
+  <table>
+    <tr>
+      <td>Unesi korisnicko ime korisnika:</td>
+      <td><input type="text" value="korisnikKojiSeAzurira" [(ngModel)]="korisnikKojiSeAzurira"></td>
+    </tr>
+    <tr>
+      <td>Odaberi koju vrednost azuriras:</td>
+      <td>
+        <select name="stavkaZaAzuriranje" [(ngModel)]="stavkaZaAzuriranje">
+          <option value="ime">Ime</option>
+          <option value="prezime">Prezime</option>
+          <option value="adresa">Adresa</option>
+          <option value="mejl">E-mail</option>
+          <option value="broj_telefona">Broj telefona</option>
+          <option value="broj_kreditne_kartice">Broj kreditne kartice</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Unesi novu vrednost koju zelis da bude postavljena na to mesto:</td>
+      <td><input type="text" value="novaVrednost" [(ngModel)]="novaVrednost"></td>
+    </tr>
+  </table>
+  <button (click)="azuriraj()">Azuriraj korisnika</button>
+  <p>{{errorPorukaAzuriranje}}</p>
+</body>

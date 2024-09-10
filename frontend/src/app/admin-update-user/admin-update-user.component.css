@@ -1,0 +1,72 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+}
+
+h3 {
+  font-size: 24px;
+  color: #228b22;
+  margin: 20px 0 10px;
+}
+
+table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table td {
+  padding: 12px 15px;
+  border: 1px solid #8fbc8f;
+  background-color: #fffaf0;
+  color: #2f4f4f;
+}
+
+table td:first-child {
+  font-weight: bold;
+  text-align: right;
+  background-color: #32cd32;
+  color: #ffffff;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #8fbc8f;
+  border-radius: 5px;
+  background-color: #fffaf0;
+  font-size: 16px;
+  color: #2f4f4f;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #32cd32;
+  color: #fff;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2e8b57;
+}
+
+p {
+  font-size: 16px;
+  color: #ff6347;
+  margin-top: 20px;
+}

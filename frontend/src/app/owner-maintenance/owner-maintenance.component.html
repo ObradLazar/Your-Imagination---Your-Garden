@@ -1,0 +1,43 @@
+<header>
+  <app-menu-owner></app-menu-owner>
+</header>
+<body>
+  <h3>Svi završeni poslovi:</h3>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th><div>ID posla</div></th>
+        <th><div>Datum zavrsetka radova:</div></th>
+        <th><div>Broj bazena u bašti:</div></th>
+        <th><div>Broj fontana u bašti:</div></th>
+        <th><div>Zakaži održavanje:</div></th>
+      </tr>
+      <tr *ngFor="let a of allJobsFinished; let i = index">
+        <td><div>{{a.id}}</div></td>
+        <td><div>{{a.datum_kraja_radova}}</div></td>
+        <td><div>{{a.broj_bazena}}</div></td>
+        <td><div>{{a.broj_fontana}}</div></td>
+        <td>
+          <div *ngIf="availableForMaintencance[i]"><button (click)="bookMaintenance(a.id)">Održavanje</button></div>
+          <div *ngIf="!checkForId(a.id)">Nije prošlo 6 meseci</div>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <h3>Sva održavanja koja se u toku:</h3>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th><div>Datum zavrsetka radova:</div></th>
+        <th><div>Vreme zavrsetka radova:</div></th>
+        <th><div>Firma izvodjač radova:</div></th>
+      </tr>
+      <tr *ngFor="let a of allAcceptedNotFinishedMaintenance">
+        <td><div>{{a.datum_izrade}}</div></td>
+        <td><div>{{a.vreme_izrade}}</div></td>
+        <td><div>{{a.firma}}</div></td>
+      </tr>
+    </table>
+  </div>
+</body>

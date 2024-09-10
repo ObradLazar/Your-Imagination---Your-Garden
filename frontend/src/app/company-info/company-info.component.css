@@ -1,0 +1,117 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+}
+
+h2 {
+  font-size: 28px;
+  color: #228b22;
+  margin: 20px 0;
+}
+
+h4 {
+  font-size: 20px;
+  color: #228b22;
+  margin: 15px 0 10px;
+}
+
+div label {
+  font-size: 16px;
+  color: #2f4f4f;
+  display: block;
+  margin: 5px 0;
+}
+
+table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+  padding: 12px 15px;
+  border: 1px solid #8fbc8f;
+}
+
+table th {
+  background-color: #32cd32;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f5fffa;
+}
+
+table tr:hover {
+  background-color: #e0f7fa;
+}
+
+li {
+  font-size: 16px;
+  color: #2f4f4f;
+  margin: 5px 0;
+}
+
+.info-container {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #fffaf0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-container h4 {
+  font-size: 20px;
+  color: #228b22;
+  margin-bottom: 10px;
+}
+
+.info-text {
+  font-size: 16px;
+  color: #2f4f4f;
+  margin: 5px 0;
+}
+
+.info-text span {
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #32cd32;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2e8b57;
+}
+
+button:focus {
+  outline: none;
+}
+
+.canvas-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+canvas {
+  border: 1px solid black;
+}

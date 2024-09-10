@@ -1,0 +1,125 @@
+<header>
+  <app-menu-admin></app-menu-admin>
+</header>
+<body>
+  <h3>Lista svih dekoratera:</h3>
+  <table class="styled-table">
+    <tr>
+      <th>
+        <div>Ime:</div>
+      </th>
+      <th>
+        <div>Prezime:</div>
+      </th>
+      <th>
+        <div>Korisnicko ime:</div>
+      </th>
+      <th>
+        <div>Broj telefona:</div>
+      </th>
+      <th>
+        <div>Broj kreditne kartice:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let d of allDecorators">
+      <td>
+        <div>{{d.ime}}</div>
+      </td>
+      <td>
+        <div>{{d.prezime}}</div>
+      </td>
+      <td>
+        <div>{{d.korisnicko_ime}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_telefona}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_kreditne_kartice}}</div>
+      </td>
+    </tr>
+  </table>
+
+  <hr/>
+
+  <h3>Lista svih vlasnika:</h3>
+  <table class="styled-table">
+    <tr>
+      <th>
+        <div>Ime:</div>
+      </th>
+      <th>
+        <div>Prezime:</div>
+      </th>
+      <th>
+        <div>Korisnicko ime:</div>
+      </th>
+      <th>
+        <div>Broj telefona:</div>
+      </th>
+      <th>
+        <div>Broj kreditne kartice:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let d of allOwners">
+      <td>
+        <div>{{d.ime}}</div>
+      </td>
+      <td>
+        <div>{{d.prezime}}</div>
+      </td>
+      <td>
+        <div>{{d.korisnicko_ime}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_telefona}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_kreditne_kartice}}</div>
+      </td>
+    </tr>
+  </table>
+
+  <hr/>
+
+  <h3>Lista svih firmi:</h3>
+  <table class="styled-table">
+    <tr>
+      <th>
+        <div>Naziv firme:</div>
+      </th>
+      <th>
+        <div>Adresa firme:</div>
+      </th>
+      <th>
+        <div>Kontakt telefon:</div>
+      </th>
+      <th>
+        <div>Lista zaposlenih:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let c of allCompanies">
+      <td>
+        <div>{{c.naziv}}</div>
+      </td>
+      <td>
+        <div>{{c.adresa}}</div>
+      </td>
+      <td>
+        <div>{{c.kontakt_telefon}}</div>
+      </td>
+      <td>
+        <div>
+          <ul *ngFor="let w of c.lista_zaposlenih">
+            {{w}}
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+<footer>
+  <button class="footer-button" (click)="promeniLozinku()">Promeni lozinku</button>
+  <button class="footer-button" (click)="logout()">Izloguj se</button>
+</footer>

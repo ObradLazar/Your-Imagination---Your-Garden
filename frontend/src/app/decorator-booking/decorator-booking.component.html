@@ -1,0 +1,88 @@
+<header>
+  <app-menu-decorator></app-menu-decorator>
+</header>
+<body>
+  <h3>Lista neobradjenih zahteva sa posao:</h3>
+  <div>
+    <h5>Komentar pri odbijanju posla:</h5>
+    <div><input type="text" [(ngModel)]="odbijena_komentar"></div>
+  </div>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th>
+          <div>Vlasnik:</div>
+        </th>
+        <th>
+          <div>Datum izvodjenja:</div>
+        </th>
+        <th>
+          <div>Kvadratura baste:</div>
+        </th>
+        <th>
+          <div>Lista usluga:</div>
+        </th>
+        <th>
+          <div>Odobri posao:</div>
+        </th>
+        <th>
+          <div>Odbij posao:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let j of unprocessedJobs">
+        <td>
+          <div>{{j.vlasnik}}</div>
+        </td>
+        <td>
+          <div>{{j.datum_kraja_radova}}</div>
+        </td>
+        <td>
+          <div>{{j.kvadratura_baste}}</div>
+        </td>
+        <td>
+          <div>
+            <li *ngFor="let u of j.lista_usluga">
+              {{u.naziv_usluga}}
+            </li>
+          </div>
+        </td>
+        <td>
+          <div><button (click)="acceptJob(j.id)">Odobri</button></div>
+        </td>
+        <td>
+          <div><button (click)="denyJob(j.id)">Odbij</button></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <hr/>
+
+  <h3>Lista prihvacenih zahteva:</h3>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th>
+          <div>Vlasnik:</div>
+        </th>
+        <th>
+          <div>Datum radova:</div>
+        </th>
+        <th>
+          <div>Zavrsi posao:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let a of allAcceptedJobs">
+        <td>
+          <div>{{a.vlasnik}}</div>
+        </td>
+        <td>
+          <div>{{a.datum_kraja_radova}}</div>
+        </td>
+        <td>
+          <div><button (click)="finishJob(a.id)">Završi</button></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>

@@ -1,0 +1,24 @@
+<header>
+  <app-menu-decorator></app-menu-decorator>
+</header>
+<body>
+  <h3>Grafik poslova po mesecu u godini:</h3>
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas #barCanvas></canvas>
+  </div>
+
+  <hr/>
+
+  <h3>Grafik poslova po dekoraterima:</h3>
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas #pieCanvas></canvas>
+  </div>
+
+  <hr/>
+
+  <h3>Grafik proseka poslova po danu u nedelji u poslednjih 24 meseca:</h3>
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas #histogramCanvas></canvas>
+  </div>
+</body>
+

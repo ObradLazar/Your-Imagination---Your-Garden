@@ -1,0 +1,88 @@
+<header>
+  <app-menu-owner></app-menu-owner>
+</header>
+<body>
+  <h3>Lista svih trenutnih poslova:</h3>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th>
+          <div>Firma izvodjač:</div>
+        </th>
+        <th>
+          <div>Dekorater:</div>
+        </th>
+        <th>
+          <div>Datum početka radova:</div>
+        </th>
+        <th>
+          <div>Status:</div>
+        </th>
+        <th>
+          <div>Lista usluga:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let j of firstTableJobs">
+        <td>
+          <div>{{j.firma}}</div>
+        </td>
+        <td>
+          <div [hidden]="j.dekorater ==''">{{j.dekorater}}</div>
+          <div [hidden]="j.dekorater !=''">Čeka se na preuzimanje</div>
+        </td>
+        <td>
+          <div>{{j.datum_kraja_radova}}</div>
+        </td>
+        <td>
+          <div [hidden]="j.status != 'neobradjen'">Na čekanju za odobrenje</div>
+          <div [hidden]="j.status == 'neobradjen'">Prihvaćen posao</div>
+        </td>
+        <td>
+          <div>
+            <li *ngFor="let u of j.lista_usluga">
+              {{u.naziv_usluga}}
+            </li>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>Lista svih završenih poslova:</h3>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th>
+          <div>Firma izvodjač:</div>
+        </th>
+        <th>
+          <div>Datum izrade:</div>
+        </th>
+        <th>
+          <div>Komentar:</div>
+        </th>
+        <th>
+          <div>Ocena:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let s of secondTableJobs">
+        <td>
+          <div>{{s.firma}}</div>
+        </td>
+        <td>
+          <div>{{s.datum_kraja_radova}}</div>
+        </td>
+        <td>
+          <div [hidden]="(s.komentar == '')">{{s.komentar}}</div>
+          <div [hidden]="(s.komentar != '')">Nema komentara</div>
+        </td>
+        <td>
+          <div [hidden]="(s.ocena == 0)">{{s.ocena}}</div>
+          <div [hidden]="(s.ocena != 0)">Nije ocenjeno</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+</body>

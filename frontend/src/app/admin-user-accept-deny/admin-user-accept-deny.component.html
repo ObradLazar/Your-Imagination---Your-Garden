@@ -1,0 +1,54 @@
+<header>
+  <app-menu-admin></app-menu-admin>
+</header>
+<body>
+  <h3>Lista svih dekoratera:</h3>
+  <table class="styled-table">
+    <tr>
+      <th>
+        <div>Ime:</div>
+      </th>
+      <th>
+        <div>Prezime:</div>
+      </th>
+      <th>
+        <div>Korisnicko ime:</div>
+      </th>
+      <th>
+        <div>Broj telefona:</div>
+      </th>
+      <th>
+        <div>Broj kreditne kartice:</div>
+      </th>
+      <th>
+        <div>Odobri:</div>
+      </th>
+      <th>
+        <div>Odbij:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let d of sviNeregistrovani">
+      <td>
+        <div>{{d.ime}}</div>
+      </td>
+      <td>
+        <div>{{d.prezime}}</div>
+      </td>
+      <td>
+        <div>{{d.korisnicko_ime}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_telefona}}</div>
+      </td>
+      <td>
+        <div>{{d.broj_kreditne_kartice}}</div>
+      </td>
+      <td>
+        <button class="approve" (click)="acceptUser(d.korisnicko_ime)">Odobri</button>
+      </td>
+      <td>
+        <button class="reject" (click)="denyUser(d.korisnicko_ime)">Odbij</button>
+      </td>
+    </tr>
+  </table>
+</body>

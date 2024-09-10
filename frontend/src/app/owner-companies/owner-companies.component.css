@@ -1,0 +1,190 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+}
+
+h3 {
+  font-size: 24px;
+  color: #228b22;
+  margin: 20px 0 10px;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+  background-color: #32cd32;
+  color: #ffffff;
+  padding: 15px 20px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #8fbc8f;
+}
+
+table td {
+  padding: 15px 20px;
+  border: 1px solid #8fbc8f;
+  vertical-align: top;
+}
+
+table td:first-child {
+  background-color: #32cd32;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: right;
+  width: 25%;
+}
+
+table td:last-child {
+  background-color: #fffaf0;
+  color: #2f4f4f;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: 75%;
+}
+
+table tr:hover {
+  background-color: #e0f7fa;
+}
+
+table td ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  margin: 0;
+}
+
+table td ul li {
+  padding: 8px 0;
+  color: #2f4f4f;
+}
+
+label {
+  font-size: 18px;
+  color: #228b22;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: inline-block;
+  background-color: #f0f8ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s, background-color 0.3s;
+}
+
+label:hover {
+  color: #2e8b57;
+  background-color: #e0f7fa;
+}
+
+h1 {
+  font-size: 36px;
+  color: #2e8b57;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px 20px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1:hover {
+  color: #228b22;
+  background-color: #e0f7fa;
+}
+
+span {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+span button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #32cd32;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+span button:hover {
+  background-color: #2e8b57;
+  transform: scale(1.05);
+}
+
+span button:active {
+  background-color: #228b22;
+  transform: scale(0.95);
+}
+
+input {
+  padding: 10px 15px;
+  border: 1px solid #8fbc8f;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #2f4f4f;
+  background-color: #fffaf0;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #32cd32;
+  box-shadow: 0 0 5px rgba(50, 205, 50, 0.5);
+  outline: none;
+}
+
+input::placeholder {
+  color: #a9a9a9;
+}
+
+input:disabled {
+  background-color: #e0e0e0;
+  color: #6c6c6c;
+}
+
+/*THREES CSS*/
+.tree-rating {
+  display: flex;
+}
+
+.symbol {
+  font-size: 24px;
+  color: #d3d3d3;
+  margin-right: 4px;
+}
+
+.symbol:last-child {
+  margin-right: 0;
+}
+
+.symbol.filled {
+  color: #4CAF50;
+}
+
+.symbol.half-filled {
+  background: linear-gradient(90deg, #4CAF50 50%, #d3d3d3 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

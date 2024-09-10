@@ -1,0 +1,38 @@
+<header>
+  <app-menu-decorator></app-menu-decorator>
+</header>
+<body>
+  <h3>Sva neprihvaćena održavanja:</h3>
+  <div>
+    <label>Unesite vreme izrade:(u obliku hh:mm)</label>
+    <input type="text" [(ngModel)]="vreme_izrade">
+  </div>
+  <div>
+    <label>Unesite datum izrade:(u obliku dd.mm.yyyy.)</label>
+    <input type="text" [(ngModel)]="datum_izrade">
+  </div>
+  <div>
+    <table class="styled-table">
+      <tr>
+        <th><div>ID posla:</div></th>
+        <th><div>Vlasnik:</div></th>
+        <th><div>Prihvati:</div></th>
+        <th><div>Odbij:</div></th>
+      </tr>
+      <tr *ngFor="let m of allUnprocessedMaintennace">
+        <td>
+          <div>{{m.id_posla}}</div>
+        </td>
+        <td>
+          <div>{{m.vlasnik}}</div>
+        </td>
+        <td>
+          <div><button (click)="acceptMaintenance(m.id_posla)">Prihvati</button></div>
+        </td>
+        <td>
+          <div><button (click)="denyMaintenance(m.id_posla)">Odbij</button></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>

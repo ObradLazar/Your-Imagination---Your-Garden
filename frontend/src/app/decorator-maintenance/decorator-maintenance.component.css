@@ -1,0 +1,125 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+}
+
+h3 {
+  font-size: 24px;
+  color: #228b22;
+  margin: 20px 0 10px;
+}
+
+h5 {
+  font-size: 20px;
+  color: #228b22;
+  margin: 20px 0 10px;
+}
+
+table.styled-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table.styled-table th, table.styled-table td {
+  padding: 12px 15px;
+  border: 1px solid #8fbc8f;
+}
+
+table.styled-table th {
+  background-color: #32cd32;
+  color: #ffffff;
+  text-align: center;
+}
+
+table.styled-table tr:nth-child(even) {
+  background-color: #f5fffa;
+}
+
+table.styled-table tr:hover {
+  background-color: #e0f7fa;
+}
+
+table.styled-table td div {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fffaf0;
+  color: #2f4f4f;
+  text-align: center;
+}
+
+table.styled-table th div {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #2e8b57;
+  color: #fff;
+  text-align: center;
+}
+
+/* Button styling */
+table.styled-table button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #228b22;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+table.styled-table button:hover {
+  background-color: #1e7a1e;
+}
+
+/* List item styling */
+table.styled-table li {
+  list-style-type: none;
+  margin: 4px 0;
+  padding: 6px 10px;
+  background-color: #e0f7fa;
+  border-radius: 4px;
+  color: #2f4f4f;
+}
+
+/* Input field styling */
+table.styled-table input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #8fbc8f;
+  border-radius: 4px;
+  background-color: #fffaf0;
+  color: #2f4f4f;
+}
+
+table.styled-table input[type="text"]:focus {
+  outline: none;
+  border-color: #32cd32;
+}
+
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+  outline: none;
+}

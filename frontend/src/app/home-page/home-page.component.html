@@ -1,0 +1,96 @@
+<header>
+  <div class="action-container">Klikni za prijavu <button (click)="prijava()">Prijavi se</button></div>
+  <div class="registration-container">U koliko nemate nalog <a routerLink="registration">registrujte se</a>.</div>
+</header>
+<h1>Vaša mašta - vaša bašta</h1>
+<body>
+  <div>
+    <label>Ukupan broj registrovanih vlasnika: {{allOwners.length}}</label><br/>
+    <label>Ukupan broj prijavljenih dekoratera je: {{allDecorators.length}}</label><br/>
+    <label>Ukupan broj zavrsenih poslova je: {{allFinishedJobs.length}}</label><br/>
+    <label>Ukupan broj poslova zakazanih juce: {{dayBeforeCounter}}</label><br/>
+    <label>Ukupan broj poslova zakazanih u proteklih 7 dana: {{weekBeforeCounter}}</label><br/>
+    <label>Ukupan broj poslova zakazanih u proteklih 30 dana: {{monthBeforeCounter}}</label><br/>
+  </div>
+
+
+<h3>Lista svih firmi:</h3>
+<div>
+  <table>
+    <tr>
+      <th>
+        <div>Ime firme:</div>
+      </th>
+      <th>
+        <div>Adresa:</div>
+      </th>
+      <th>
+        <div>Kontakt telefon:</div>
+      </th>
+      <th>
+        <div>Lista zaposlenih:</div>
+      </th>
+    </tr>
+    <tr *ngFor="let c of allCompanies">
+      <td>
+        <div>{{c.naziv}}</div>
+      </td>
+      <td>
+        <div>{{c.adresa}}</div>
+      </td>
+      <td>
+        <div>{{c.kontakt_telefon}}</div>
+      </td>
+      <td>
+        <div><li *ngFor="let d of c.lista_zaposlenih">{{getDecorator(d)}}</li></div>
+      </td>
+    </tr>
+  </table>
+  <label>Sortiraj po:</label>
+  <span>
+    <button (click)="nazivRastuce()">Imenu rastuće</button>
+    <button (click)="nazivOpadajuce()">Imenu opadajuće</button>
+    <button (click)="adresaRastuce()">Adresi rastuće</button>
+    <button (click)="adresaOpadajuce()">Adresi opadajuće</button>
+  </span>
+</div>
+<div>
+  <h3>Pretraga:</h3>
+  <div>
+    <label>Unesite parametar pretrage:</label>
+    <input type="text" [(ngModel)]="searchParam">
+    <span><button (click)="search()">Pretraži</button></span>
+    <table [hidden]="!searchBool">
+      <tr>
+        <th>
+          <div>Ime firme:</div>
+        </th>
+        <th>
+          <div>Adresa:</div>
+        </th>
+        <th>
+          <div>Kontakt telefon:</div>
+        </th>
+        <th>
+          <div>Lista zaposlenih:</div>
+        </th>
+      </tr>
+      <tr *ngFor="let c of searchCompanies">
+        <td>
+          <div>{{c.naziv}}</div>
+        </td>
+        <td>
+          <div>{{c.adresa}}</div>
+        </td>
+        <td>
+          <div>{{c.kontakt_telefon}}</div>
+        </td>
+        <td>
+          <div><li *ngFor="let d of c.lista_zaposlenih">{{getDecorator(d)}}</li></div>
+        </td>
+      </tr>
+    </table>
+    <label [hidden]="searchBool">{{searchMessage}}</label>
+  </div>
+</div>
+</body>

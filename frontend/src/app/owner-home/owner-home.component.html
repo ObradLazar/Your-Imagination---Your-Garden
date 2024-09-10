@@ -1,0 +1,86 @@
+<header>
+  <app-menu-owner></app-menu-owner>
+</header>
+<body>
+  <h3>Prikaz profila:</h3>
+  <img [src]="'http://localhost:4000/' + this.current_owner.slika">
+  <div>
+    <table>
+      <tr>
+        <td>
+          Ime:
+        </td>
+        <td>
+          <div>{{current_owner.ime}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Prezime:
+        </td>
+        <td>
+          <div>{{current_owner.prezime}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Adresa:
+        </td>
+        <td>
+          <div>{{current_owner.adresa}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          E-mail:
+        </td>
+        <td>
+          <div>{{current_owner.mejl}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Broj mobilnog telefona:
+        </td>
+        <td>
+          <div>{{current_owner.broj_telefona}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Broj kreditne kartice:
+        </td>
+        <td>
+          <div>{{current_owner.broj_kreditne_kartice}}</div>
+        </td>
+      </tr>
+    </table>
+</div>
+<h3>Azuriraj profil:</h3>
+  <div>
+    <label>U koliko zelite da azuirate neki od podataka izaberite iz padajuce liste koji: </label>
+    <select name="stavkaZaAzuriranje" [(ngModel)]="stavkaZaAzuriranje">
+      <option value="ime">Ime</option>
+      <option value="prezime">Prezime</option>
+      <option value="adresa">Adresa</option>
+      <option value="mejl">E-mail</option>
+      <option value="broj_telefona">Broj telefona</option>
+      <option value="broj_kreditne_kartice">Broj kreditne kartice</option>
+      <option value="profilna_slika">Profilna slika</option>
+    </select>
+    <br>
+    <label>Unesite novu vrednost vaseg izabranog podatka: </label>
+    <input type="text" value="nova_vrednost" [(ngModel)]="nova_vrednost">
+    <label>U koliko ste izabrali promenu profilne slike:</label>
+    <input type="file" name="slika" (change)="loadFile($event)">
+    <br>
+    <button (click)="update()">Azuriraj</button>
+    <div>{{error_poruka}}</div>
+  </div>
+</body>
+<footer>
+  <footer>
+    <button class="footer-button" (click)="promeniLozinku()">Promeni lozinku</button>
+    <button class="footer-button" (click)="logout()">Izloguj se</button>
+  </footer>
+</footer>

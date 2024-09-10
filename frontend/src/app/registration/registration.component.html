@@ -1,0 +1,70 @@
+<body>
+  <div style="text-align: center;">
+<h3>Registracija:</h3>
+<div class="form-container">
+  <table>
+    <tr>
+      <td><div>Ime:</div></td>
+      <td><input type="text" value="ime" [(ngModel)]="ime"></td>
+    </tr>
+    <tr>
+      <td><div>Prezime:</div></td>
+      <td><input type="text" value="prezime" [(ngModel)]="prezime"></td>
+    </tr>
+    <tr>
+      <td><div>Korisnicko ime:</div></td>
+      <td><input type="text" value="korisnicko_ime" [(ngModel)]="korisnicko_ime"></td>
+    </tr>
+    <tr>
+      <td><div>Lozinka:</div></td>
+      <td><input type="password" value="lozinka" [(ngModel)]="lozinka"></td>
+    </tr>
+    <tr>
+      <td><div>Pol:</div></td>
+      <td>
+        <label>
+          Muski<input type="radio" name="pol" value="M" [(ngModel)]="pol">
+          Ženski<input type="radio" name="pol" value="Z" [(ngModel)]="pol">
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td><div>Adresa:</div></td>
+      <td><input type="text" value="adresa" [(ngModel)]="adresa"></td>
+    </tr>
+    <tr>
+      <td><div>E-mail adresa:</div></td>
+      <td><input type="text" value="mejl" [(ngModel)]="mejl" (ngModelChange)="checkMail()"></td>
+    </tr>
+    <tr>
+      <td><div>Broj telefona:</div></td>
+      <td><input type="text" value="broj_telefona" [(ngModel)]="broj_telefona" (ngModelChange)="checkPhone()"></td>
+    </tr>
+    <tr>
+      <td><div>Profilna slika:</div></td>
+      <td><input type="file" name="slika" (change)="loadFile($event)"></td>
+    </tr>
+    <tr>
+      <td><div>Broj kreditne kartice:</div></td>
+      <td><input type="text" value="broj_kreditne_kartice" [(ngModel)]="broj_kreditne_kartice" (ngModelChange)="proveraBrojaKartice()"></td>
+    </tr>
+    <tr *ngIf="card != 0">
+      <td colspan="2">
+        <img *ngIf="card == 1" src="../../assets/diners.png" width="90" height="60">
+        <img *ngIf="card == 2" src="../../assets/master.png" width="100" height="60">
+        <img *ngIf="card == 3" src="../../assets/visa.png" width="100" height="64">
+        </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <button (click)="register()">Registruj se</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>{{error_poruka}}</p>
+<p>{{error_credit_card}}</p>
+<p>{{error_mail_poruka}}</p>
+<p>{{error_phone_poruka}}</p>
+</div>
+</body>

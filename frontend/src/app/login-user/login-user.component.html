@@ -1,0 +1,23 @@
+<body>
+  <div style="text-align: center;">
+<h3>Prijava:</h3>
+<div class="form-container">
+  <table>
+    <tr>
+      <td><div>Korisnicko ime:</div></td>
+      <td><input type="text" value="korisnicko_ime" [(ngModel)]="korisnicko_ime"></td>
+    </tr>
+    <tr>
+      <td><div>Lozinka:</div></td>
+      <td><input type="password" value="lozinka" [(ngModel)]="lozinka"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <button (click)="login()">Prijavi se</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>{{error_poruka}}</p>
+</div>
+</body>

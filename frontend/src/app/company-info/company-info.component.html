@@ -1,0 +1,104 @@
+
+<body>
+  <h2>{{currentCompany.naziv}}</h2>
+
+<div class="info-container">
+    <h4>Opšte informacije:</h4>
+    <p class="info-text">Firma se nalazi na adresi: <span>{{currentCompany.adresa}}</span></p>
+    <p class="info-text">Kontakt telefon firme je: <span>{{currentCompany.kontakt_telefon}}</span></p>
+</div>
+
+  <div>
+    <h4>Lista usluga koje firma pruža:</h4>
+    <table>
+      <tr>
+        <th>
+          Naziv usluge:
+        </th>
+        <th>
+          Cena usluge:
+        </th>
+      </tr>
+      <tr *ngFor="let u of currentCompany.lista_usluga">
+        <td>{{u.naziv_usluga}}</td>
+        <td>{{u.cena_usluge}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h4>Lista komentara drugih korisnika:</h4>
+    <li *ngFor="let k of currentCompany.lista_komentara">
+      {{k}}
+    </li>
+  </div>
+
+  <div>
+    <h4>Zakaži uredjivanje bašte:</h4>
+    <div [hidden]="step != 1" class="info-container">
+      <label>Izaberite datum i vreme početka izvodjenja radova:</label>
+      <input type="datetime-local" [(ngModel)]="string_datum"><br/>
+      <label>Unesite kvadraturu cele bašte:</label>
+      <input type="number" [(ngModel)]="kvadratura_baste">
+      <label>Izaberite tip bašte:</label>
+      <a>Privatna basta</a><input type="radio" value="privatna_basta" [(ngModel)]="tip_baste">
+      <a>Baste firme</a><input type="radio" value="basta_firme" [(ngModel)]="tip_baste"><br/>
+      <button (click)="nextStep()" style="transform: scale(0.7);">Sledeći korak:</button>
+    </div>
+
+    <!--PRIVATNA BASTA-->
+    <div [hidden]="step != 2" class="info-container">
+      <label>Unesite kvadraturu bašte koja je pod bazenom:</label>
+      <input type="number" [(ngModel)]="kvadratura_plava">
+      <label>Unesite kvadraturu bašte koja je pod zelenilom:</label>
+      <input type="number" [(ngModel)]="kvadratura_zelena">
+      <label>Unesite kvadraturu bašte koja je pod ležaljkama i stolovima:</label>
+      <input type="number" [(ngModel)]="kvadratura_braon"><br/>
+      <hr/>
+      <label>Odaberite usluge koje želite:</label>
+      <ul *ngFor="let u of currentCompany.lista_usluga; let i = index">
+        <input type="checkbox" value="True" [(ngModel)]="check_list[i]"><a>{{u.naziv_usluga}}</a>
+      </ul>
+      <label>U koliko imate, unesite dodatne zahteve:</label>
+      <textarea [(ngModel)]="dodatni_zahtevi">Dodatni zahtevi</textarea>
+      <label>U koliko zelite, mozete uneti mapu baste:</label>
+      <input type="file" (change)="onFileSelected($event)" accept=".json">
+
+      <hr/>
+      <button (click)="makeReservation()" style="transform: scale(0.7);">Zakaži uredjivanje:</button>
+    </div>
+
+    <!--BASTA FIRME-->
+    <div [hidden]="step != 3" class="info-container">
+      <label>Unesite kvadraturu bašte koja je pod fontanom:</label>
+      <input type="number" [(ngModel)]="kvadratura_plava">
+      <label>Unesite kvadraturu bašte koja je pod zelenilom:</label>
+      <input type="number" [(ngModel)]="kvadratura_zelena">
+      <label>Unesite broj stolova:</label>
+      <input type="number" [(ngModel)]="broj_stolova">
+      <label>Unesite broj stolova:</label>
+      <input type="number" [(ngModel)]="broj_stolica"><br/>
+      <hr/>
+      <label>Odaberite usluge koje želite:</label>
+      <ul *ngFor="let u of currentCompany.lista_usluga; let i = index">
+        <input type="checkbox" value="True" [(ngModel)]="check_list[i]"><a>{{u.naziv_usluga}}</a>
+      </ul>
+      <label>U koliko imate, unesite dodatne zahteve:</label>
+      <textarea [(ngModel)]="dodatni_zahtevi">Dodatni zahtevi</textarea>
+      <label>U koliko zelite, mozete uneti mapu baste:</label>
+      <input type="file" (change)="onFileSelected($event)" accept=".json">
+      <hr/>
+      <button (click)="makeReservation()" style="transform: scale(0.7);">Zakaži uredjivanje:</button>
+    </div>
+    <p>{{error_poruka}}</p>
+  </div>
+  <div class="canvas-container">
+    <canvas *ngIf="fileLoaded" #myCanvas width="500" height="500"></canvas>
+  </div>
+
+</body>
+
+
+<footer>
+
+</footer>

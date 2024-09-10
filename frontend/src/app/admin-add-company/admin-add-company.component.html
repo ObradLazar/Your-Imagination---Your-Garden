@@ -1,0 +1,66 @@
+<header>
+  <app-menu-admin></app-menu-admin>
+</header>
+<body>
+  <div style="text-align: center;">
+<h3>Kreiraj novu firmu:</h3>
+<div class="form-container">
+  <table>
+    <tr>
+      <td><div>Naziv firme:</div></td>
+      <td><input type="text" value="naziv" [(ngModel)]="naziv"></td>
+    </tr>
+    <tr>
+      <td><div>Adresa firme:</div></td>
+      <td><input type="text" value="adresa" [(ngModel)]="adresa"></td>
+    </tr>
+    <tr>
+      <td><div>Kontakt telefon:</div></td>
+      <td><input type="text" value="kontakt_telefon" [(ngModel)]="kontakt_telefon"></td>
+    </tr>
+    <tr>
+      <td><div>Korisnicko ime dekoratera:</div></td>
+      <td><input type="text" value="dekorater" [(ngModel)]="dekorater"></td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="addDecorator()" style="transform: scale(0.8);">Dodaj dekoratora</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><label style="color: darkgreen; font-weight: bold;">NAPOMENA: Firma mora da sadrži barem 2 dekoratera</label></td>
+    </tr>
+    <tr>
+      <td><div>Naziv usluge:</div></td>
+      <td><input type="text" value="naziv_usluge" [(ngModel)]="naziv_usluge"></td>
+    </tr>
+    <tr>
+      <td><div>Cena usluge:</div></td>
+      <td><input type="number" value="cena_usluge" [(ngModel)]="cena_usluge"></td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="addService()" style="transform: scale(0.8);">Dodaj uslugu firme</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><label style="color: darkgreen; font-weight: bold;">NAPOMENA: Možete ubaciti koliko želite usluga</label></td>
+    </tr>
+    <tr>
+      <td><div>Početak godišnjeg odmora:</div></td>
+      <td><input type="text" value="pocetak_godisnjeg_odmora" [(ngModel)]="pocetak_godisnjeg_odmora"></td>
+    </tr>
+    <tr>
+      <td><div>Kraj godišnjeg odmora:</div></td>
+      <td><input type="text" value="kraj_godisnjeg_odmora" [(ngModel)]="kraj_godisnjeg_odmora"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <button (click)="createCompany()">Kreiraj firmu</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<p>{{error_poruka}}</p>
+</div>
+</body>
